@@ -93,7 +93,7 @@ class Zamoroka_Issuu_Adminhtml_IssuuController extends Mage_Adminhtml_Controller
                 }
             }
             if ($this->model->getId()) {
-                $pageTitle = $this->__('Edit %s (%s)', $this->model->getName(), $this->model->getType());
+                $pageTitle = $this->__('Edit %s (%s)', $this->model->getTitle(), $this->model->getId());
             } else {
                 $pageTitle = $this->__('New info');
             }

@@ -51,6 +51,9 @@ class Zamoroka_Issuu_Model_Issuu extends Mage_Core_Model_Abstract
     {
         if (!$this->getId()) {
             $this->isObjectNew(true);
+        }
+
+        if ($this->isObjectNew() || $this->getNeedUpdate()) {
             $this->_updateData();
         }
 

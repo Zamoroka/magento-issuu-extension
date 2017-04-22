@@ -41,6 +41,14 @@ class Zamoroka_Issuu_Block_Adminhtml_Issuu_Edit_Tab_General extends Zamoroka_Iss
         $fieldset = $form->addFieldset('issuu_general_form', array(
             'legend' => $this->__('General Setup')
         ));
+
+        $fieldset->addField('need_update', 'hidden', array(
+            'label' => $this->__('Update'),
+            'name' => 'need_update',
+            'title' => 'need_update',
+            'required' => false,
+        ));
+
         $fieldset->addField('category_id', 'select', array(
             'label' => $this->__('Enable post?'),
             'name' => 'is_active',

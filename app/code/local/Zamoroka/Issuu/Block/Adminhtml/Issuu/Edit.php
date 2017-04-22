@@ -45,18 +45,28 @@ class Zamoroka_Issuu_Block_Adminhtml_Issuu_Edit extends Mage_Adminhtml_Block_Wid
     protected function _prepareLayout()
     {
         parent::_prepareLayout();
-        $this->_updateButton('save', 'label', $this->__('Save info'));
-        $this->_updateButton('delete', 'label', $this->__('Delete info'));
+        $this->_updateButton('save', 'label', $this->__('Save publication'));
+        $this->_updateButton('delete', 'label', $this->__('Delete publication'));
         $this->_addButton('save_and_continue', array(
             'label' => $this->__('Save and continue edit'),
             'onclick' => 'saveAndContinueEdit()',
             'class' => 'save'
         ), 10);
+        $this->_addButton('update_data', array(
+            'label' => $this->__('Update data'),
+            'onclick' => 'updateData()',
+        ), 50);
+
         if (Mage::getSingleton('cms/wysiwyg_config')->isEnabled()) {
             $this->getLayout()->getBlock('head')->setCanLoadTinyMce(true);
         }
         $this->_formScripts[]
             = "function saveAndContinueEdit(){
+                editForm.submit($('edit_form').action + 'back/edit/');
+            }";
+        $this->_formScripts[]
+            = "function updateData(){
+                document.getElementById('generalneed_update').value = '1';
                 editForm.submit($('edit_form').action + 'back/edit/');
             }";
     }
