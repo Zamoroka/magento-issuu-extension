@@ -1,0 +1,48 @@
+<?php
+/**
+ * Zamoroka_Issuu
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to p@zamoroka.com so we can send you a copy immediately.
+ *
+ * @category  Issuu
+ * @package   Zamoroka
+ * @copyright Copyright (c) 2017 Zamoroka Pavlo (http://www.zamoroka.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+
+/** @var $this Zamoroka_Issuu_Block_List */
+$issuuCollection = $this->getIssuu();
+?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php if ($issuuCollection->getSize()): ?>
+    <?php echo $this->getPagerHtml(); ?>
+    <div class="category-products">
+        <ol class="products-list" id="products-list">
+            <?php foreach ($issuuCollection as $issuu) : ?>
+                <?php $id = $issuu->getId(); ?>
+                <li class="item">
+                    <h3><a href="<?php echo $this->getIssuuViewUrl($id); ?>"><?php echo $issuu->getTitle(); ?></a></h3>
+                    <a href="<?php echo $this->getIssuuViewUrl($id); ?>">
+                        <img src="<?php echo $issuu->getThumbnailUrl() ?>"/>
+                    </a>
+                    <p><?php echo $issuu->getDescription(); ?></p>
+
+                    <p class="a-right">
+                        <a href="<?php echo $this->getIssuuViewUrl($id); ?>"><?php echo $this->__('Read more'); ?></a>
+                    </p>
+                </li>
+            <?php endforeach; ?>
+        </ol>
+    </div>
+    <?php echo $this->getPagerHtml(); ?>
+<?php else: ?>
+    <p><?php echo $this->__('There is no any issuu posts.'); ?></p>
+<?php endif ?>

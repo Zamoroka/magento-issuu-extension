@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!--
+/**
+* Zamoroka
+*
+* NOTICE OF LICENSE
+*
+* This source file is subject to the Open Software License (OSL 3.0)
+* that is bundled with this package in the file LICENSE.txt.
+* It is also available through the world-wide-web at this URL:
+* http://opensource.org/licenses/osl-3.0.php
+* If you did not receive a copy of the license and are unable to
+* obtain it through the world-wide-web, please send an email
+* to p@zamoroka.com so we can send you a copy immediately.
+*
+* @category  Issuu
+* @package   Zamoroka
+* @copyright Copyright (c) 2017 Zamoroka Pavlo (http://www.zamoroka.com)
+* @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+*/
+-->
+<config>
+    <modules>
+        <Zamoroka_Issuu>
+            <version>0.1.0</version>
+        </Zamoroka_Issuu>
+    </modules>
+    <frontend>
+        <routers>
+            <zamoroka_issuu>
+                <use>standard</use>
+                <args>
+                    <module>Zamoroka_Issuu</module>
+                    <frontName>issuu</frontName>
+                </args>
+            </zamoroka_issuu>
+        </routers>
+        <layout>
+            <updates>
+                <zamoroka_issuu_issuu>
+                    <file>zamoroka/issuu/list.xml</file>
+                </zamoroka_issuu_issuu>
+            </updates>
+        </layout>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <zamoroka_issuu>
+                        <class>zamoroka_issuu/observer</class>
+                        <method>addToTopmenu</method>
+                    </zamoroka_issuu>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
+    </frontend>
+    <global>
+        <helpers>
+            <zamoroka_issuu>
+                <class>Zamoroka_Issuu_Helper</class>
+            </zamoroka_issuu>
+        </helpers>
+        <blocks>
+            <zamoroka_issuu>
+                <class>Zamoroka_Issuu_Block</class>
+            </zamoroka_issuu>
+        </blocks>
+        <models>
+            <zamoroka_issuu>
+                <class>Zamoroka_Issuu_Model</class>
+                <resourceModel>zamoroka_issuu_resource</resourceModel>
+            </zamoroka_issuu>
+            <zamoroka_issuu_resource>
+                <class>Zamoroka_Issuu_Model_Resource</class>
+                <entities>
+                    <issuu>
+                        <table>zamoroka_issuu</table>
+                    </issuu>
+                </entities>
+            </zamoroka_issuu_resource>
+        </models>
+        <resources>
+            <issuu_setup>
+                <setup>
+                    <module>Zamoroka_Issuu</module>
+                    <class>Mage_Eav_Model_Entity_Setup</class>
+                </setup>
+            </issuu_setup>
+        </resources>
+    </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <zamoroka_issuu before="Mage_Adminhtml">Zamoroka_Issuu_Adminhtml</zamoroka_issuu>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <adminhtml>
+        <layout>
+            <updates>
+                <admin_issuu_issuu>
+                    <file>zamoroka/issuu/issuu.xml</file>
+                </admin_issuu_issuu>
+            </updates>
+        </layout>
+    </adminhtml>
+    <default>
+        <zamoroka_issuu>
+            <issuu_general_group>
+                <enable_extension>1</enable_extension>
+                <issuu_per_page>10</issuu_per_page>
+                <show_last_block>1</show_last_block>
+                <issuu_in_block>3</issuu_in_block>
+            </issuu_general_group>
+        </zamoroka_issuu>
+    </default>
+</config>

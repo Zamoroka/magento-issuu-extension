@@ -1,0 +1,8 @@
+*
+!.gitignore
+!LICENSE
+!app/code/local/Zamoroka/Issuu/**
+!app/design/adminhtml/default/default/layout/zamoroka/issuu/**
+!app/design/frontend/base/default/layout/zamoroka/issuu/**
+!app/design/frontend/base/default/template/zamoroka/issuu/**
+!app/etc/modules/Zamoroka_Issuu.xml

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Zamoroka_Issuu
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to p@zamoroka.com so we can send you a copy immediately.
+ *
+ * @category  Issuu
+ * @package   Zamoroka
+ * @copyright Copyright (c) 2017 Zamoroka Pavlo (http://www.zamoroka.com)
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <tabs>
+        <zamoroka_issuu>
+            <label>Zamoroka</label>
+            <sort_order>10</sort_order>
+        </zamoroka_issuu>
+    </tabs>
+    <sections>
+        <zamoroka_issuu translate="label">
+            <label>Issuu</label>
+            <tab>zamoroka_issuu</tab>
+            <sort_order>10</sort_order>
+            <show_in_default>1</show_in_default>
+            <groups>
+                <issuu_general_group translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <fields>
+                        <enable_extension>
+                            <label>Enable the extension</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </enable_extension>
+                        <issuu_per_page translate="label">
+                            <label><![CDATA[ Issuu per page <strong style="color:red">*</strong>]]></label>
+                            <validate>required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </issuu_per_page>
+                        <show_last_block translate="label">
+                            <label>Show lastest issuu block</label>
+                            <frontend_type>select</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                        </show_last_block>
+                        <issuu_in_block translate="label">
+                            <label><![CDATA[ Issuu in block <strong style="color:red">*</strong>]]></label>
+                            <validate>required-entry</validate>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                        </issuu_in_block>
+                    </fields>
+                </issuu_general_group>
+            </groups>
+        </zamoroka_issuu>
+    </sections>
+</config>
