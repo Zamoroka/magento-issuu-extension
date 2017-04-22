@@ -25,34 +25,6 @@
             <version>0.1.0</version>
         </Zamoroka_Issuu>
     </modules>
-    <frontend>
-        <routers>
-            <zamoroka_issuu>
-                <use>standard</use>
-                <args>
-                    <module>Zamoroka_Issuu</module>
-                    <frontName>issuu</frontName>
-                </args>
-            </zamoroka_issuu>
-        </routers>
-        <layout>
-            <updates>
-                <zamoroka_issuu_issuu>
-                    <file>zamoroka/issuu/list.xml</file>
-                </zamoroka_issuu_issuu>
-            </updates>
-        </layout>
-        <events>
-            <page_block_html_topmenu_gethtml_before>
-                <observers>
-                    <zamoroka_issuu>
-                        <class>zamoroka_issuu/observer</class>
-                        <method>addToTopmenu</method>
-                    </zamoroka_issuu>
-                </observers>
-            </page_block_html_topmenu_gethtml_before>
-        </events>
-    </frontend>
     <global>
         <helpers>
             <zamoroka_issuu>
@@ -87,6 +59,34 @@
             </issuu_setup>
         </resources>
     </global>
+    <frontend>
+        <routers>
+            <zamoroka_issuu>
+                <use>standard</use>
+                <args>
+                    <module>Zamoroka_Issuu</module>
+                    <frontName>issuu</frontName>
+                </args>
+            </zamoroka_issuu>
+        </routers>
+        <layout>
+            <updates>
+                <zamoroka_issuu_issuu>
+                    <file>zamoroka/issuu/list.xml</file>
+                </zamoroka_issuu_issuu>
+            </updates>
+        </layout>
+        <events>
+            <page_block_html_topmenu_gethtml_before>
+                <observers>
+                    <zamoroka_issuu>
+                        <class>zamoroka_issuu/observer</class>
+                        <method>addToTopmenu</method>
+                    </zamoroka_issuu>
+                </observers>
+            </page_block_html_topmenu_gethtml_before>
+        </events>
+    </frontend>
     <admin>
         <routers>
             <adminhtml>

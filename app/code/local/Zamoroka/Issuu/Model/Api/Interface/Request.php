@@ -6,7 +6,7 @@
  * Date: 22.04.2017
  * Time: 0:26
  */
-interface RequestInterface
+interface Zamoroka_Issuu_Model_Api_Interface_Request
 {
     /**
      * @param $url string
@@ -17,7 +17,7 @@ interface RequestInterface
     /**
      * Makes API request
      *
-     * @return ResponseInterface
+     * @return Zamoroka_Issuu_Model_Api_Interface_Response
      */
-    public function makeRequest();
+    public function call();
 }

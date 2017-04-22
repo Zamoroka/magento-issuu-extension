@@ -133,4 +133,30 @@ class Zamoroka_Issuu_Helper_Data extends Mage_Core_Helper_Abstract
 
         return $issuuPerPage;
     }
+
+    /**
+     * Making API call
+     *
+     * @param string $url
+     * @return Zamoroka_Issuu_Model_Api_Response|false
+     */
+    public function makeRequest($url)
+    {
+        /** @var Zamoroka_Issuu_Model_Api_Request $request */
+        $request = Mage::getModel('Zamoroka_Issuu_Model_Api_Request');
+
+        $request->setUrl($url);
+        $data = $request->call();
+
+
+        if ($data) {
+            /** @var Zamoroka_Issuu_Model_Api_Response $response */
+            $response = Mage::getModel('Zamoroka_Issuu_Model_Api_Response');
+            $response->setData($data);
+            return $response;
+        } else {
+            Mage::getSingleton('core/session')->addError('empty response from issuu.com');
+            return false;
+        }
+    }
 }
