@@ -111,7 +111,7 @@
         <zamoroka_issuu>
             <issuu_general_group>
                 <enable_extension>1</enable_extension>
-                <issuu_per_page>10</issuu_per_page>
+                <issuu_per_page>8</issuu_per_page>
                 <show_last_block>1</show_last_block>
                 <issuu_in_block>3</issuu_in_block>
             </issuu_general_group>

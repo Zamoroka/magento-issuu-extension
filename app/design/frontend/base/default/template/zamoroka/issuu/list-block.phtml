@@ -25,22 +25,19 @@ $issuuCollection = $this->getIssuu();
 <?php if ($issuuCollection->getSize()): ?>
     <?php echo $this->getPagerHtml(); ?>
     <div class="category-products">
-        <ol class="products-list" id="products-list">
+        <div class="toolbar"></div>
+
+        <ul class="products-grid products-grid--max-4-col first last odd" id="issuu-list">
             <?php foreach ($issuuCollection as $issuu) : ?>
                 <?php $id = $issuu->getId(); ?>
                 <li class="item">
-                    <h3><a href="<?php echo $this->getIssuuViewUrl($id); ?>"><?php echo $issuu->getTitle(); ?></a></h3>
-                    <a href="<?php echo $this->getIssuuViewUrl($id); ?>">
+                    <a href="<?php echo $this->getIssuuViewUrl($id); ?>" class="product-image">
                         <img src="<?php echo $issuu->getThumbnailUrl() ?>"/>
                     </a>
-                    <p><?php echo $issuu->getDescription(); ?></p>
-
-                    <p class="a-right">
-                        <a href="<?php echo $this->getIssuuViewUrl($id); ?>"><?php echo $this->__('Read more'); ?></a>
-                    </p>
+                    <h3><a href="<?php echo $this->getIssuuViewUrl($id); ?>"><?php echo $issuu->getTitle(); ?></a></h3>
                 </li>
             <?php endforeach; ?>
-        </ol>
+        </ul>
     </div>
     <?php echo $this->getPagerHtml(); ?>
 <?php else: ?>

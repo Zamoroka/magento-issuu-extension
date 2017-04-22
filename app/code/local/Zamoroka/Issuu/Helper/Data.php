@@ -36,7 +36,7 @@ class Zamoroka_Issuu_Helper_Data extends Mage_Core_Helper_Abstract
     {
         /** @var Zamoroka_Issuu_Model_Issuu $collectionModel */
         $collectionModel = Mage::getModel('zamoroka_issuu/issuu');
-        $collection = $collectionModel->getCollection();
+        $collection = $collectionModel->getCollection()->setOrder('date_start', 'DESC');
         $collection->addFilter('is_active', 1);
 
         return $collection;

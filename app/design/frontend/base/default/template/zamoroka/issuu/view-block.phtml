@@ -21,6 +21,11 @@
 /** @var $this Zamoroka_Issuu_Block_View */
 $issuuInfo = $this->getIssuuItem();
 ?>
+<style>
+    .issuuembed.issuu-isrendered {
+        width: 100% !important;
+    }
+</style>
 <h2><?php echo $issuuInfo->getTitle(); ?></h2>
 <blockquote><?php echo $issuuInfo->getDescription(); ?></blockquote>
 <div class="content"><?php echo $issuuInfo->getContent(); ?></div>
